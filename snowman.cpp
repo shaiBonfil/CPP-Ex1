@@ -4,26 +4,32 @@
 #include "snowman.hpp"
 using namespace std;
 
+const int MINIMUM = 11111111;
+const int MAXIMUM = 44444444;
+const int SNOWMAN = 11114411;
+
 namespace ariel
 {
     string snowman(long num)
     {
-        if (!(num > 11111111 && num < 44444444))
+        if (num < MINIMUM || num > MAXIMUM)
         {
             throw invalid_argument("error: invalid input!");
         }
-        else if (num == 11114411)
+        if (num == SNOWMAN)
         {
-            return "===\n(.,.)\n( : )\n( : )";
+            return "_===_\n(.,.)\n( : )\n( : )";
         }
-        for (int i = num; i > 0; i--)
+        long tmp = num;
+        while (tmp != 0)
         {
-            if (!(num%10 > 1 && num%10 < 4))
+            if ((tmp%10 < 1) || (tmp%10 > 4))
             {
                 throw invalid_argument("error: invalid input!");
             }
-            num /= 10;
+            tmp /= 10;
         }
+        
         return " ";
     }
 }
