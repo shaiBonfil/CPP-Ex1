@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <array>
 using namespace std;
 
 enum parts
@@ -14,16 +15,16 @@ enum parts
     BASE
 };
 
-enum arms
+enum arms // LowerCase because collusion with StudentTest1
 {
-    UP = 0,     // upwards arm
-    DOWN = 1    // downwards arm
+    up = 0,  // upwards arm
+    down = 1 // downwards arm
 };
 
-const string space = " "; // for pretty printing 
+const string space = " "; // for pretty printing
 
-const short INPUT_LENGTH = 8;
-const short NUM_OF_TYPES = 4;
+const short VALID_LEN = 8;
+const short NUM_TYPES = 4;
 
 // All Hats
 const string straw_hat = space + "_===_";
@@ -64,19 +65,20 @@ const string none = "   ";
 const string feet = "\" \"";
 const string flat = "___";
 
-const string presets[INPUT_LENGTH][NUM_OF_TYPES] = {
-    {straw_hat, mexican_hat, fez, russian_hat},                 // Hats
-    {normal_nose, dot_nose, line_nose, none_nose},              // Noses
-    {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},     // Left Eye
-    {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},     // Right Eye
-    {normal_left, upwards_left, downwards_left, none_arm},      // Left Arms
-    {normal_right, upwards_right, downwards_right, none_arm},   // Right Arms
-    {buttons, vest, inward_arms, none},                         // Torsos
-    {buttons, feet, flat, none}                                 // Bases
+const string presets[VALID_LEN][NUM_TYPES] =
+{
+        {straw_hat, mexican_hat, fez, russian_hat},               // Hats
+        {normal_nose, dot_nose, line_nose, none_nose},            // Noses
+        {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},   // Left Eye
+        {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},   // Right Eye
+        {normal_left, upwards_left, downwards_left, none_arm},    // Left Arms
+        {normal_right, upwards_right, downwards_right, none_arm}, // Right Arms
+        {buttons, vest, inward_arms, none},                       // Torsos
+        {buttons, feet, flat, none}                               // Bases
 };
 
 namespace ariel
 {
     string snowman(long num);
-    int get_index(char digit);
+    int charToInt(char c);
 }

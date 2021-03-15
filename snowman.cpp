@@ -10,19 +10,13 @@ using namespace ariel;
 
 const int MINIMUM = 11111111;
 const int MAXIMUM = 44444444;
+const int DEC = 10;
 
 namespace ariel
 {
-    /* 
-    This method takes the input snowman()received and fetches all the necessary
-    parts from the parts matrix, puts them in their corresponding locations in an array
-    and returns that array
-    */
-
-    int get_index(char digit)
+    int charToInt(char c)
     {
-        int index = digit - '0' - 1;
-        return index;
+        return c - '0' -1;
     }
 
     string snowman(long num)
@@ -36,31 +30,31 @@ namespace ariel
         long tmp = num;
         while (tmp != 0)
         {
-            if ((tmp % 10 < 1) || (tmp % 10 > 4))
+            if ((tmp % DEC < 1) || (tmp % DEC > 4))
             {
                 throw invalid_argument("error: invalid input!");
             }
-            tmp /= 10;
+            tmp /= DEC;
         }
 
-        string ans = "";
-        array <string, INPUT_LENGTH> res;
+        string ans;
+        array <string, VALID_LEN> res;
         string str = to_string(num);
-        int j;
-        for (int i = 0; i < INPUT_LENGTH; i++)
+        int j = 0;
+        for (int i = 0; i < VALID_LEN; i++)
         {
-            j = get_index(str.at(i));
-            res[i] = presets[i][j];
+            j = charToInt(str.at(i));
+            res.at(i) = presets[i][j];
         }
 
         ans += (res[HAT] + "\n");                               // Hat
-        ans += res[LA].at(UP);                                  // Upper Left Arm
+        ans += res[LA].at(up);                                  // Upper Left Arm
         ans += ("(" + res[LE] + res[NOSE] + res[RE] + ")");     // Eyes and Nose
-        ans += res[RA].at(UP);                                  // Upper Right Arm
+        ans += res[RA].at(up);                                  // Upper Right Arm
         ans += "\n";
-        ans += res[LA].at(DOWN);                                // Lower Left Arm
+        ans += res[LA].at(down);                                // Lower Left Arm
         ans += ("(" + res[TORSO] + ")");                        // Torso
-        ans += res[RA].at(DOWN);                                // Lower Right Arm
+        ans += res[RA].at(down);                                // Lower Right Arm
         ans += "\n";
         ans += (space + "(" + res[BASE] + ")" + "\n");          // Base
 
