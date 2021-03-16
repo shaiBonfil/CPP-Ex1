@@ -21,9 +21,9 @@ namespace ariel
 
     string snowman(long num)
     {
-        // if the input greater or less than the valid input
-        // if the input is 8 digits between min and max, than we check it in the while loop
-        if (num < MINIMUM || num > MAXIMUM)
+        // if the input number not equal to 8 digits, this is a invalid input
+        // if the input is 8 digits, than we check it in the while loop
+        if (to_string(num).length() != VALID_LEN)
         {
             throw invalid_argument("error: invalid input!");
         }
@@ -44,7 +44,7 @@ namespace ariel
         for (int i = 0; i < VALID_LEN; i++)
         {
             j = charToInt(str.at(i));
-            res.at(i) = presets[i][j];
+            res.at(i) = presets.at(i).at(j);
         }
 
         ans += (res[HAT] + "\n");                               // Hat

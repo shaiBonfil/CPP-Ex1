@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <array>
+#include <vector>
 using namespace std;
 
 enum parts
@@ -65,17 +65,16 @@ const string none = "   ";
 const string feet = "\" \"";
 const string flat = "___";
 
-const string presets[VALID_LEN][NUM_TYPES] =
-{
-        {straw_hat, mexican_hat, fez, russian_hat},               // Hats
-        {normal_nose, dot_nose, line_nose, none_nose},            // Noses
-        {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},   // Left Eye
-        {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye},   // Right Eye
-        {normal_left, upwards_left, downwards_left, none_arm},    // Left Arms
-        {normal_right, upwards_right, downwards_right, none_arm}, // Right Arms
-        {buttons, vest, inward_arms, none},                       // Torsos
-        {buttons, feet, flat, none}                               // Bases
-};
+const vector<string> Hats = {straw_hat, mexican_hat, fez, russian_hat};
+const vector<string> Noses = {normal_nose, dot_nose, line_nose, none_nose};
+const vector<string> Left_Eye = {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye};
+const vector<string> Right_Eye = {dot_eye, bigger_dot_eye, biggest_dot_eye, closed_eye};
+const vector<string> Left_Arms = {normal_left, upwards_left, downwards_left, none_arm};
+const vector<string> Right_Arms = {normal_right, upwards_right, downwards_right, none_arm};
+const vector<string> Torsos = {buttons, vest, inward_arms, none};
+const vector<string> Bases = {buttons, feet, flat, none};
+
+const vector<vector<string>> presets = {Hats, Noses, Left_Eye, Right_Eye, Left_Arms, Right_Arms, Torsos, Bases};
 
 namespace ariel
 {
