@@ -8,8 +8,6 @@
 using namespace std;
 using namespace ariel;
 
-const int MINIMUM = 11111111;
-const int MAXIMUM = 44444444;
 const int DEC = 10;
 
 namespace ariel
