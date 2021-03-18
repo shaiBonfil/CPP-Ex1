@@ -3,17 +3,7 @@
 #include <vector>
 using namespace std;
 
-enum parts
-{
-    HAT,
-    NOSE,
-    LE,
-    RE,
-    LA,
-    RA,
-    TORSO,
-    BASE
-};
+enum parts { HAT, NOSE, LEFT_EYE, RIGHT_EYE, LEFT_ARM, RIGHT_ARM, TORSO, BASE};
 
 enum arms // LowerCase because collusion with StudentTest1
 {

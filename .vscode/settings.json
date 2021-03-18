@@ -3,6 +3,8 @@
         "stdexcept": "cpp",
         "iosfwd": "cpp",
         "bitset": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
